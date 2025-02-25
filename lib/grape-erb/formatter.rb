@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 require 'tilt'
+require 'tilt/erb'
 
 module Grape
   module Erb
@@ -51,7 +52,7 @@ module Grape
 
       def erb_template(view_name)
         _path = view_path(view_name)
-        ::Tilt::ErubisTemplate.new(_path, @options)
+        Tilt.new(_path, @options)
       end
 
       def layout_name
